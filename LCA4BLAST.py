@@ -88,22 +88,22 @@ if __name__ == "__main__":
 
     # Retrieving parameters or applying default value.
     if args.length:
-        length = args.length
+        length = int(args.length)
     else:
         length = 350
 
     if args.low_pident:
-        ls_threshold = args.low_pident
+        ls_threshold = int(args.low_pident)
     else:
         ls_threshold = 80
 
     if args.high_pident:
-        hs_threshold = args.high_pident
+        hs_threshold = int(args.high_pident)
     else:
         hs_threshold = 95
 
     if args.p_hits:
-        perc_hits_threshold = args.p_hits
+        perc_hits_threshold = int(args.p_hits)
     else:
         perc_hits_threshold = 90
 
