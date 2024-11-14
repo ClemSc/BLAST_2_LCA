@@ -32,7 +32,7 @@ LCA4BLAST/LCA4BLAST.py -t nodes.dmp.gz -n names.dmp.gz -i blast_otus.tsv.gz -o R
 
 ### Mandatory parameters:
 - Input and output filename are mandatory and are set with `-t/--nodes`, `-n/--names`, `-i/--input`, `-o/--output` (check the example command).
-`-f/--fields` = Blast output fields. Use the same values and same order as in your Blast search command `-outfmt` without the leading "6", e.g. "qseqid saccver pident qcovs length evalue bitscore staxid"
+- `-f/--fields` = Blast output fields. Use the same values and same order as in your Blast search command `-outfmt` without the leading "6", e.g. "qseqid saccver pident qcovs length evalue bitscore staxid"
 
 ### Optional parameters (a default value will be used when not specified):
 - `-H/-high_pident` = high similary threshold (percentage), default is 80
