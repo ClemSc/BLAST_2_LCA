@@ -4,9 +4,15 @@ LCA4BLAST performs Last Common Ancestor (LCA) estimation from Blast search resul
 
 ## Installation
 LCA4BLAST is a stand-alone module that requires Python3 and the Pandas library, which can be installed with pip:
+
+```console
 pip install pandas
+```
 or conda
+```console
 conda install pandas
+```
+Then simply download LCA4BLAST.py from this repository and place it wherever you like. Make it executable, or run it with Python.
 ## Use
 ### Prerequisite.
 LCA4BLAST use as inputs a local blast search result file and NCBI taxonomy information files: nodes.dmp and names.dmp which are packaged in taxdump:
@@ -27,7 +33,7 @@ Adapt to your liking, but outfmt needs to be '6' and the following fields are ma
 
 ### Example command:
 ```console
-LCA4BLAST/LCA4BLAST.py -t nodes.dmp.gz -n names.dmp.gz -i blast_otus.tsv.gz -o RESULTS_LCA.tsv -L 80 -H 95 -p 90 -l 350  -f "qseqid saccver pident qcovs length evalue bitscore staxid"
+LCA4BLAST.py -t nodes.dmp.gz -n names.dmp.gz -i blast_otus.tsv.gz -o RESULTS_LCA.tsv -L 80 -H 95 -p 90 -l 350  -f "qseqid saccver pident qcovs length evalue bitscore staxid"
 ```
 
 ### Mandatory parameters:
