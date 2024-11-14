@@ -16,7 +16,7 @@ Input files can be provided uncompressed or gzipped.
 Typically, the blast search command should look like this:
 
 ```console
-blastn -query calls.fasta -task megablast -db nt -out blast_otus.tsv -outfmt "6 qseqid saccver pident qcovs length evalue bitscore staxid" -num_threads 8 -evalue 1e-05
+blastn -query reads.fasta -task megablast -db nt -out blast_otus.tsv -outfmt "6 qseqid saccver pident qcovs length evalue bitscore staxid" -num_threads 8 -evalue 1e-05
 ```
 Mind that your blast database must be built with taxid references. Typically with:
 ```console
