@@ -33,7 +33,7 @@ Adapt parameters values to your liking, but outfmt needs to be '6' and the follo
 
 ### Example command:
 ```console
-LCA4BLAST.py -t nodes.dmp.gz -n names.dmp.gz -i blast_results.tsv.gz -o RESULTS_LCA.tsv -L 80 -H 95 -p 90 -l 350  -f "qseqid saccver pident qcovs length evalue bitscore staxid"
+LCA4BLAST.py -t nodes.dmp -n names.dmp -i blast_results.tsv -o RESULTS_LCA.tsv -L 80 -H 95 -p 90 -l 350  -f "qseqid saccver pident qcovs length evalue bitscore staxid"
 ```
 
 ### Mandatory parameters:
