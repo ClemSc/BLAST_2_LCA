@@ -41,8 +41,8 @@ LCA4BLAST.py -t nodes.dmp -n names.dmp -i blast_results.tsv -o RESULTS_LCA.tsv -
 - `-f/--fields` = Blast output fields. Use the same values and same order as in your Blast search command `-outfmt` without the leading "6", e.g. "qseqid saccver pident qcovs length evalue bitscore staxid"
 
 ### Optional parameters (a default value will be used when not specified):
-- `-H/-high_pident` = high similary threshold (percentage), default is 80
-- `-L/--low_pident` = low similary threshold (percentage), default is 95.
+- `-H/-high_pident` = high similary threshold (percentage), default is 95
+- `-L/--low_pident` = low similary threshold (percentage), default is 80.
   
   LCA4BLAST uses a high similarity and a low similarity threshold to decide whether a species level identification is relevant or not. Only queries for which at least one hit was found with percentage identity (pident) > H will get a chance to be identified to species. Otherwise, genus will be used as the lowest rank possible. Hits with pident < L are not used. In general, H should be set where the user estimate the species gap to be.
 
