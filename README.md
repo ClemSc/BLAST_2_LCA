@@ -48,7 +48,7 @@ LCA4BLAST.py -t nodes.dmp -n names.dmp -i blast_results.tsv -o RESULTS_LCA.tsv -
 
 - `-p/--p_hits` = percentage of hits thresholds, default is 90.
   
-Blast database is not perfect, and contains misidentified sequences. This parameter specifies the majority threshold over which a taxa should be accepted. E.g. if p = 90. Then if 95% of the hits are assigned to _Megalothorax minimus_ and 5% to _Megalothorax willemi_, then the query will be assigned to _Megalothorax minimus_. Else ff only 85% of the hits are assigned to _M. minimus_ and 15% to _M. willemi_, then the query will be assigned to "_Megalothorax_".
+Genbank is not perfect, and contains misidentified sequences. This parameter specifies the majority threshold over which a taxa should be accepted. E.g. if p = 90. Then if 95% of the hits are assigned to _Megalothorax minimus_ and 5% to _Megalothorax willemi_, then the query will be assigned to _Megalothorax minimus_. Else ff only 85% of the hits are assigned to _M. minimus_ and 15% to _M. willemi_, then the query will be assigned to "_Megalothorax_".
 
 - `-l/--length` = minimum alignment length, default is 350.
   
