@@ -1,5 +1,6 @@
+#!/usr/bin/env python3
+
 import argparse
-import gzip
 import numpy as np
 import pandas as pd
 
