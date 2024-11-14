@@ -1,6 +1,6 @@
 # LCA4BLAST
 
-LCA4BLAST performs Last Common Ancestor (LCA) estimation from Blast search results on Genbank database.
+LCA4BLAST performs Lowest Common Ancestor (LCA) estimation from Blast search results on Genbank database.
 
 ## Installation
 LCA4BLAST is a stand-alone module that requires Python3 and the Pandas library, which can be installed with pip:
