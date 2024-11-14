@@ -19,7 +19,9 @@ blastn -query calls.fasta -task megablast -db nt -out blast_otus.tsv -outfmt "6 
 Adapt to your liking, but outfmt needs to be '6' and the following fileds are mandatory: "qseqid pident length evalue staxid". Any extra fields will be shown in the final result, as the values corresponding to the best hit for each surviving queries.
 
 Example command:
+```console
 LCA4BLAST/LCA4BLAST.py -t nodes.dmp.gz -n names.dmp.gz -i blast_otus.tsv.gz -o RESULTS_LCA.tsv -L 80 -H 95 -p 90 -l 350  -f "qseqid saccver pident qcovs length evalue bitscore staxid"
+```
 
 Mandatory parameters:
 Input and output filename are mandatory and are set with -t, -n, -i, -o (check the example command).
