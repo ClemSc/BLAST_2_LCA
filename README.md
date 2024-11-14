@@ -44,7 +44,7 @@ LCA4BLAST.py -t nodes.dmp -n names.dmp -i blast_results.tsv -o RESULTS_LCA.tsv -
 - `-H/-high_pident` = high similary threshold (percentage), default is 80
 - `-L/--low_pident` = low similary threshold (percentage), default is 95.
   
-  LCA4BLAST uses a high similarity and a low similarity threshold to decide whether a species level identification is relevant or not. Only queries for which at least one hit was found with percentage identity (pident) > H will get a chance to be identified to species. Otherwise, genus will be used as the lower rank possible. Hits with pident < L are not used. In general, H should be set where the user estimate the species gap to be.
+  LCA4BLAST uses a high similarity and a low similarity threshold to decide whether a species level identification is relevant or not. Only queries for which at least one hit was found with percentage identity (pident) > H will get a chance to be identified to species. Otherwise, genus will be used as the lowest rank possible. Hits with pident < L are not used. In general, H should be set where the user estimate the species gap to be.
 
 - `-p/--p_hits` = percentage of hits thresholds, default is 90.
   
