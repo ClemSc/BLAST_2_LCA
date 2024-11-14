@@ -15,25 +15,25 @@ conda install pandas
 Then simply download LCA4BLAST.py from this repository and place it wherever you like. Make it executable, or run it with Python.
 ## Use
 ### Prerequisite.
-LCA4BLAST use as inputs a local blast search result file and NCBI taxonomy information files: nodes.dmp and names.dmp which are packaged in taxdump:
+LCA4BLAST takes as inputs a local blast search result file and NCBI taxonomy information files: nodes.dmp and names.dmp which are packaged in taxdump:
 https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz
 Input files can be provided uncompressed or gzipped.
 
-Typically, the blast search command should look like this:
-
-```console
-blastn -query reads.fasta -task megablast -db nt -out blast_otus.tsv -outfmt "6 qseqid saccver pident qcovs length evalue bitscore staxid" -num_threads 8 -evalue 1e-05
-```
 Mind that your blast database must be built with taxid references. Typically with:
 ```console
 makeblastdb -in nt.fasta -dbtype nucl -out nt -taxid_map acc2taxid_map_file -parse_seqids
 ```
+Then, the blast search command should look like this:
 
-Adapt to your liking, but outfmt needs to be '6' and the following fields are mandatory: "qseqid pident length evalue staxid". Any extra fields will be shown in the final result, with values corresponding to the best hit for each surviving queries.
+```console
+blastn -query reads.fasta -task megablast -db nt -out blast_results.tsv -outfmt "6 qseqid saccver pident qcovs length evalue bitscore staxid" -num_threads 8 -evalue 1e-05
+```
+
+Adapt parameters values to your liking, but outfmt needs to be '6' and the following fields are mandatory: "qseqid pident length evalue staxid". Any extra fields will be shown in the final result, with values corresponding to the best hit for each surviving queries.
 
 ### Example command:
 ```console
-LCA4BLAST.py -t nodes.dmp.gz -n names.dmp.gz -i blast_otus.tsv.gz -o RESULTS_LCA.tsv -L 80 -H 95 -p 90 -l 350  -f "qseqid saccver pident qcovs length evalue bitscore staxid"
+LCA4BLAST.py -t nodes.dmp.gz -n names.dmp.gz -i blast_results.tsv.gz -o RESULTS_LCA.tsv -L 80 -H 95 -p 90 -l 350  -f "qseqid saccver pident qcovs length evalue bitscore staxid"
 ```
 
 ### Mandatory parameters:
