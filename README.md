@@ -23,7 +23,7 @@ Mind that your blast database must be built with taxid references. Typically wit
 makeblastdb -in nt.fasta -dbtype nucl -out nt -taxid_map acc2taxid_map_file -parse_seqids
 ```
 
-Adapt to your liking, but outfmt needs to be '6' and the following fileds are mandatory: "qseqid pident length evalue staxid". Any extra fields will be shown in the final result, as the values corresponding to the best hit for each surviving queries.
+Adapt to your liking, but outfmt needs to be '6' and the following fields are mandatory: "qseqid pident length evalue staxid". Any extra fields will be shown in the final result, as the values corresponding to the best hit for each surviving queries.
 
 ### Example command:
 ```console
