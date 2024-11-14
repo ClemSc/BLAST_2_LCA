@@ -42,13 +42,16 @@ LCA4BLAST.py -t nodes.dmp -n names.dmp -i blast_results.tsv -o RESULTS_LCA.tsv -
 
 ### Optional parameters (a default value will be used when not specified):
 - `-H/-high_pident` = high similary threshold (percentage), default is 80
-- `-L/--low_pident` = low similary threshold (percentage), default is 95
+- `-L/--low_pident` = low similary threshold (percentage), default is 95.
+  
   LCA4BLAST uses a high similarity and a low similarity threshold to decide whether a species level identification is relevant or not. Only queries for which at least one hit was found with percentage identity (pident) > H will get a chance to be identified to species. Otherwise, genus will be used as the lower rank possible. Hits with pident < L are not used. In general, H should be set where the user estimate the species gap to be.
 
 - `-p/--p_hits` = percentage of hits thresholds, default is 90.
+  
 Blast database is not perfect, and contains misidentified sequences. This parameter specify over which majority threshold a taxa should be accepted. E.g. if p = 90 and 95% of the hits are assigned to Megalothorax minimus, 5% to Megalothorax willemi, then the query will be assigned to Megalothorax minimus. If only 85% of the hits are assigned to M. minimus and 15 to M. willemi, then the query will be assigned to "Megalothorax".
 
 - `-l/--length` = minimum alignment length, default is 350.
+  
 The minimum alignment length query/subject to be accepted.
 
 
