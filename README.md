@@ -1,9 +1,9 @@
-# LCA4BLAST
+# BLAST_2_LCA
 
-LCA4BLAST performs Lowest Common Ancestor (LCA) estimation from Blast search results on Genbank database.
+BLAST_2_LCA performs Lowest Common Ancestor (LCA) estimation from Blast search results on Genbank database.
 
 ## Installation
-LCA4BLAST is a single file Python 3 module that requires the Pandas library. Pandas can be installed with pip:
+BLAST_2_LCA is a single file Python 3 module that requires the Pandas library. Pandas can be installed with pip:
 
 ```console
 pip install pandas
@@ -12,7 +12,7 @@ or conda
 ```console
 conda install pandas
 ```
-Then simply download LCA4BLAST.py from this repository and place it wherever you like. Make it executable, or run it with Python.
+Then simply download BLAST_2_LCA.py from this repository and place it wherever you like. Make it executable, or run it with Python.
 ## Use
 ### Prerequisite.
 LCA4BLAST takes as inputs a local blast search result file and NCBI taxonomy information files: nodes.dmp and names.dmp which are packaged in taxdump:
@@ -53,10 +53,10 @@ Adapt parameters values to your likings, but outfmt needs to be '6' and the foll
 
 then perform LCA on the results:
 ```console
-LCA4BLAST.py -t nodes.dmp -n names.dmp -i blast_results.tsv -o RESULTS_LCA.tsv -L 80 -H 95 -p 90 -l 350  -f "qseqid saccver pident qcovs length evalue bitscore staxid"
+BLAST_2_LCA.py -t nodes.dmp -n names.dmp -i blast_results.tsv -o RESULTS_LCA.tsv -L 80 -H 95 -p 90 -l 350  -f "qseqid saccver pident qcovs length evalue bitscore staxid"
 ```
 
-### LCA4BLAST parameters
+### BLAST_2_LCA parameters
 #### Mandatory parameters:
 - Input and output filenames are mandatory and are set with `-t/--nodes`, `-n/--names`, `-i/--input`, `-o/--output` (check the example command).
 - `-f/--fields` = Blast output fields. Use the same values and same order as in your Blast search command `-outfmt` without the leading "6", e.g. "qseqid saccver pident qcovs length evalue bitscore staxid"
@@ -65,7 +65,7 @@ LCA4BLAST.py -t nodes.dmp -n names.dmp -i blast_results.tsv -o RESULTS_LCA.tsv -
 - `-H/-high_pident` = high similary threshold (percentage), default is 95
 - `-L/--low_pident` = low similary threshold (percentage), default is 80.
   
-  LCA4BLAST uses a high similarity and a low similarity threshold to decide whether a species level identification is relevant or not. Only queries for which at least one hit was found with percentage identity (pident) > H will get a chance to be identified to species. Otherwise, genus will be used as the lowest rank possible. Hits with pident < L are not used. In general, H should be set where the user estimate the species gap to be.
+  BLAST_2_LCA uses a high similarity and a low similarity threshold to decide whether a species level identification is relevant or not. Only queries for which at least one hit was found with percentage identity (pident) > H will get a chance to be identified to species. Otherwise, genus will be used as the lowest rank possible. Hits with pident < L are not used. In general, H should be set where the user estimate the species gap to be.
 
 - `-p/--p_hits` = percentage of hits thresholds, default is 90.
   
