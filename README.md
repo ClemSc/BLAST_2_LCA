@@ -19,11 +19,24 @@ LCA4BLAST takes as inputs a local blast search result file and NCBI taxonomy inf
 https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz
 Input files can be provided uncompressed or gzipped.
 
-Mind that your blast database must be built with taxid references. Typically with:
+Mind that your blast database must be built with taxid references. Here are some guidelines:
+
+1- Retrieve the accession2taxid files: https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/
+e.g. nucl_gb.accession2taxid.gz  and nucl_wgs.accession2taxid.gz if you intend to build a comprehensive nucleotide search DB.
+
+2- Concatenate those two files, drop field names and keep only the accession number and taxid fields: 
 ```console
-makeblastdb -in nt.fasta -dbtype nucl -out nt -taxid_map acc2taxid_map_file -parse_seqids
+ zcat -n nucl_gb.accession2taxid.gz | tail -n +2 > nucl.accession2taxid
+ zcat -n nucl_wgs.accession2taxid.gz | tail -n +2 >> nucl.accession2taxid
+awk 'NR>1 {print $1,$3}' nucl.accession2taxid > tmp_acc2taxid
+mv tmp_acc2taxid nucl.accession2taxid
+ ```
+3- Make the Blast search DB (e.g. from full nt database: https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz)
+
+```console
+makeblastdb -in nt -dbtype nucl -out nt -taxid_map nucl.accession2taxid -parse_seqids
 ```
-Then, the blast search command should look like this:
+Then, a typlical blast search command looks like this:
 
 ```console
 blastn -query reads.fasta -task megablast -db nt -out blast_results.tsv -outfmt "6 qseqid saccver pident qcovs length evalue bitscore staxid" -num_threads 8 -evalue 1e-05
