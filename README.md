@@ -36,7 +36,7 @@ mv tmp_acc2taxid nucl.accession2taxid
 ```console
 makeblastdb -in nt -dbtype nucl -out nt -taxid_map nucl.accession2taxid -parse_seqids
 ```
-Then, a typlical blast search command looks like this:
+4- Perform a search from a collection of sequences (e.g. metagenomics long reads). A typical Blast search command looks like this:
 
 ```console
 blastn -query reads.fasta -task megablast -db nt -out blast_results.tsv -outfmt "6 qseqid saccver pident qcovs length evalue bitscore staxid" -num_threads 8 -evalue 1e-05
