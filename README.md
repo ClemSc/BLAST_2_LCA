@@ -37,7 +37,7 @@ mv tmp_acc2taxid nucl.accession2taxid
 makeblastdb -in nt -dbtype nucl -out nt -taxid_map nucl.accession2taxid -parse_seqids
 ```
 ### Example Blast search and LCA estimation:
-A typical Blast search look like this, reads.fasta contains the queried sequences.
+A typical Blast search looks like this, reads.fasta contains the queried sequences.
 
 ```console
 blastn -query reads.fasta -task megablast -db nt -out blast_results.tsv -outfmt "6 qseqid saccver pident qcovs length evalue bitscore staxid" -num_threads 8 -evalue 1e-05
@@ -45,15 +45,17 @@ blastn -query reads.fasta -task megablast -db nt -out blast_results.tsv -outfmt 
 
 Adapt parameters values to your likings, but outfmt needs to be '6' and the following fields are mandatory: "qseqid pident length evalue staxid". Any extra fields will be shown in the final result, with values corresponding to the best hit for each surviving queries.
 
+then perform LCA on the results:
 ```console
 LCA4BLAST.py -t nodes.dmp -n names.dmp -i blast_results.tsv -o RESULTS_LCA.tsv -L 80 -H 95 -p 90 -l 350  -f "qseqid saccver pident qcovs length evalue bitscore staxid"
 ```
 
-### Mandatory parameters:
+### LCA4BLAST parameters
+#### Mandatory parameters:
 - Input and output filename are mandatory and are set with `-t/--nodes`, `-n/--names`, `-i/--input`, `-o/--output` (check the example command).
 - `-f/--fields` = Blast output fields. Use the same values and same order as in your Blast search command `-outfmt` without the leading "6", e.g. "qseqid saccver pident qcovs length evalue bitscore staxid"
 
-### Optional parameters (a default value will be used when not specified):
+#### Optional parameters (a default value will be used when not specified):
 - `-H/-high_pident` = high similary threshold (percentage), default is 95
 - `-L/--low_pident` = low similary threshold (percentage), default is 80.
   
