@@ -36,6 +36,12 @@ mv tmp_acc2taxid nucl.accession2taxid
 ```console
 makeblastdb -in nt -dbtype nucl -out nt -taxid_map nucl.accession2taxid -parse_seqids
 ```
+
+Hint: if you target a specific taxonomic group, you could use taxonize_gb (https://github.com/msabrysarhan/taxonize_genbank) to make a taxon restricted nt (or nr) dataset. E.g. for Nematoda (taxid = 6231).
+```console
+taxonize_gb --db nt --db_path nt.gz --taxid 6231 --nucl_gb_acc2taxid nucl_gb.accession2taxid.gz  --nucl_wgs_acc2taxid nucl_wgs.accession2taxid.gz --out Nematoda_nt
+```
+
 ### Example Blast search and LCA estimation:
 A typical Blast search looks like this, reads.fasta contains the queried sequences.
 
