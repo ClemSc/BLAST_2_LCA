@@ -19,7 +19,7 @@ LCA4BLAST takes as inputs a local blast search result file and NCBI taxonomy inf
 https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz
 Input files can be provided uncompressed or gzipped.
 
-Mind that your blast database must be built with taxid references. Here are some guidelines:
+Mind that your blast database must be built with taxid references. Here are some guidelines to build a suitable Blast search database:
 
 1- Retrieve the accession2taxid files: https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/
 e.g. nucl_gb.accession2taxid.gz  and nucl_wgs.accession2taxid.gz if you intend to build a comprehensive nucleotide search DB.
