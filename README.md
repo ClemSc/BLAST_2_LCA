@@ -17,7 +17,6 @@ Then simply download BLAST_2_LCA.py from this repository and place it wherever y
 ### Prerequisite.
 BLAST_2_LCA takes as inputs a local blast search result file and NCBI taxonomy information files: nodes.dmp and names.dmp which are packaged in taxdump:
 https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz
-Input files can be provided uncompressed or gzipped.
 
 Mind that your blast database must be built with taxid references. Here are some guidelines to build a suitable Blast search database:
 
@@ -58,7 +57,7 @@ BLAST_2_LCA.py -t nodes.dmp -n names.dmp -i blast_results.tsv -o RESULTS_LCA.tsv
 
 ### BLAST_2_LCA parameters
 #### Mandatory parameters:
-- Input and output filenames are mandatory and are set with `-t/--nodes`, `-n/--names`, `-i/--input`, `-o/--output` (check the example command).
+- Input and output filenames are mandatory and are set with `-t/--nodes`, `-n/--names`, `-i/--input`, `-o/--output` (check the example command). Note: the input files can be provided compressed (e.g. gzipped).
 - `-f/--fields` = Blast output fields. Use the same values and same order as in your Blast search command `-outfmt` without the leading "6", e.g. "qseqid saccver pident qcovs length evalue bitscore staxid"
 
 #### Optional parameters (a default value will be used when not specified):
