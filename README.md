@@ -36,15 +36,15 @@ mv tmp_acc2taxid nucl.accession2taxid
 ```console
 makeblastdb -in nt -dbtype nucl -out nt -taxid_map nucl.accession2taxid -parse_seqids
 ```
-4- Perform a search from a collection of sequences (e.g. metagenomics long reads). A typical Blast search command looks like this:
+### Example Blast search and LCA estimation:
+A typical Blast search look like this, reads.fasta contains the queried sequences.
 
 ```console
 blastn -query reads.fasta -task megablast -db nt -out blast_results.tsv -outfmt "6 qseqid saccver pident qcovs length evalue bitscore staxid" -num_threads 8 -evalue 1e-05
 ```
 
-Adapt parameters values to your liking, but outfmt needs to be '6' and the following fields are mandatory: "qseqid pident length evalue staxid". Any extra fields will be shown in the final result, with values corresponding to the best hit for each surviving queries.
+Adapt parameters values to your likings, but outfmt needs to be '6' and the following fields are mandatory: "qseqid pident length evalue staxid". Any extra fields will be shown in the final result, with values corresponding to the best hit for each surviving queries.
 
-### Example command:
 ```console
 LCA4BLAST.py -t nodes.dmp -n names.dmp -i blast_results.tsv -o RESULTS_LCA.tsv -L 80 -H 95 -p 90 -l 350  -f "qseqid saccver pident qcovs length evalue bitscore staxid"
 ```
