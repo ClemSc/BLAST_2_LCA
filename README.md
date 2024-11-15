@@ -26,8 +26,8 @@ e.g. nucl_gb.accession2taxid.gz  and nucl_wgs.accession2taxid.gz if you intend t
 
 2- Concatenate those two files, drop field names and keep only the accession number and taxid fields: 
 ```console
-zcat -n nucl_gb.accession2taxid.gz | tail -n +2 > nucl.accession2taxid
-zcat -n nucl_wgs.accession2taxid.gz | tail -n +2 >> nucl.accession2taxid
+zcat nucl_gb.accession2taxid.gz | tail -n +2 > nucl.accession2taxid
+zcat nucl_wgs.accession2taxid.gz | tail -n +2 >> nucl.accession2taxid
 awk 'NR>1 {print $1,$3}' nucl.accession2taxid > tmp_acc2taxid
 mv tmp_acc2taxid nucl.accession2taxid
  ```
