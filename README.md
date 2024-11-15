@@ -15,7 +15,7 @@ conda install pandas
 Then simply download BLAST_2_LCA.py from this repository and place it wherever you like. Make it executable, or run it with Python.
 ## Use
 ### Prerequisite.
-LCA4BLAST takes as inputs a local blast search result file and NCBI taxonomy information files: nodes.dmp and names.dmp which are packaged in taxdump:
+BLAST_2_LCA takes as inputs a local blast search result file and NCBI taxonomy information files: nodes.dmp and names.dmp which are packaged in taxdump:
 https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz
 Input files can be provided uncompressed or gzipped.
 
